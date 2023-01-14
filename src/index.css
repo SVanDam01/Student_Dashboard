@@ -1,0 +1,159 @@
+/* Reset CSS */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Set root */
+
+:root {
+  --color-theme: rgb(0, 0, 128);
+  --color-ligt: white;
+  --color-bg: rgb(247, 247, 247);
+  --color-btn: rgb(0, 0, 128);
+  --color-delbtn: rgb(180, 20, 20);
+  --color-navbar: #333;
+  --color-table: #333;
+
+  background-color: var(--color-bg);
+  color: var(--color-dark);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  margin: 1rem;
+}
+
+/* Navbar */
+
+.flex {
+  display: flex;
+  list-style-type: none;
+  margin-bottom: 1rem;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--color-navbar);
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.active {
+  background-color: var(--color-theme);
+}
+
+/* Setup Form */
+
+.input-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+input,
+select {
+  height: 28px;
+}
+
+button {
+  background-color: var(--color-btn);
+  color: var(--color-ligt);
+  border-width: 0px;
+  padding: 0.5em;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  height: 2rem;
+  display: inline-block;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.filterFunction {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0rem 1rem 0rem;
+}
+
+label {
+  align-self: center;
+}
+
+/* Setup Table */
+
+table {
+  width: 100%;
+  text-align: left;
+}
+
+.flex-del {
+  display: flex;
+}
+
+.song-header {
+  background-color: var(--color-table);
+  color: var(--color-ligt);
+  height: 32px;
+}
+
+.song-header__item {
+  padding: 0.15rem;
+  gap: 1rem;
+}
+
+.sort-button {
+  background-color: transparent;
+  color: var(--color-ligt);
+  border-width: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  padding-left: 2rem;
+}
+
+#delButton {
+  align-content: center;
+  flex-grow: 1;
+  background-color: var(--color-delbtn);
+}
+
+.song__item {
+  background-color: var(--color-ligt);
+  padding: 0.5rem;
+}
