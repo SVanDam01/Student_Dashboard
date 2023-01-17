@@ -47,113 +47,62 @@ select {
   margin: 1rem;
 }
 
-/* Navbar */
+/* Setup dashboard page */
 
-.flex {
+.wrapper {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 20% 1fr;
+}
+
+.sidebar {
+  background-color: rgb(185, 240, 240);
+  border-style: solid;
+  border-width: 0.1rem;
+  border-color: #333;
+  max-height: 600px;
+}
+
+.flex-filter {
   display: flex;
-  list-style-type: none;
-  margin-bottom: 1rem;
-  padding: 0;
-  overflow: hidden;
-  background-color: var(--color-navbar);
+  flex-direction: column;
+  gap: 1rem;
 }
 
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.active {
-  background-color: var(--color-theme);
-}
-
-/* Setup Form */
-
-.input-bar {
+.filter-name {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 1rem 0rem 1rem 0rem;
 }
 
-input,
-select {
-  height: 28px;
-}
-
-button {
-  background-color: var(--color-btn);
-  color: var(--color-ligt);
-  border-width: 0px;
-  padding: 0.5em;
-  font-size: 12px;
-  text-align: center;
-  text-decoration: none;
-  height: 2rem;
-  display: inline-block;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.filterFunction {
+.filter-item {
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   gap: 1rem;
-  margin: 1rem 0rem 1rem 0rem;
+  margin-left: 1rem;
 }
 
-label {
-  align-self: center;
-}
-
-/* Setup Table */
+/* Setup lay-out Table */
 
 table {
   width: 100%;
   text-align: left;
 }
 
-.flex-del {
-  display: flex;
-}
-
-.song-header {
+.table-header {
   background-color: var(--color-table);
   color: var(--color-ligt);
   height: 32px;
 }
 
-.song-header__item {
+.header__item {
   padding: 0.15rem;
   gap: 1rem;
 }
 
-.sort-button {
-  background-color: transparent;
-  color: var(--color-ligt);
-  border-width: 0;
-  font-family: inherit;
-  font-size: inherit;
-  font-style: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  padding-left: 2rem;
-}
-
-#delButton {
-  align-content: center;
-  flex-grow: 1;
-  background-color: var(--color-delbtn);
-}
-
-.song__item {
+.item__list {
   background-color: var(--color-ligt);
   padding: 0.5rem;
 }
