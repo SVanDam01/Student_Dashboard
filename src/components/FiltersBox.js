@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
-import FilterNames from "../components/FilterNames.js";
+import FilterByNames from "./FilterByNames.js";
 
-function Filters({
+function FiltersBox({
   studentNames,
   filterByName,
   setFilterByName,
@@ -72,7 +72,7 @@ function Filters({
 
   // ** SET CONST FOR IETS CHECKBOX BASED ON NAME AND CALL FilterNames COMPONENT ** //
   const studentName = studentNames.map((studentName, index) => (
-    <FilterNames
+    <FilterByNames
       studentName={studentName.name}
       CheckedAll={checked}
       key={index}
@@ -105,4 +105,4 @@ function Filters({
   );
 }
 
-export default Filters;
+export default FiltersBox;
