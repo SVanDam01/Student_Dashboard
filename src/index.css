@@ -99,7 +99,7 @@ button:hover {
   height: fit-content;
   padding: 1rem;
   margin-top: 1.5rem;
-  min-width: 145px;
+  min-width: 325px;
 }
 
 .filter-name {
@@ -113,6 +113,7 @@ button:hover {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
+  margin: 0rem 6rem 0rem 2rem;
 }
 
 .filter-item {
@@ -120,7 +121,7 @@ button:hover {
   flex-direction: column;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-left: 1rem;
+  margin-left: 2rem;
 }
 
 .profilebox {
