@@ -21,7 +21,7 @@ function Table({ data }) {
 
   return (
     // ** SET TABLE ** //
-    <div>
+    <div className="table_content_container">
       <table>
         <thead className="table-header">
           <tr>{headerList}</tr>
