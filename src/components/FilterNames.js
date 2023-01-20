@@ -9,17 +9,20 @@ function FilterNames({ studentName, CheckedAll, updateNamesToFilter }) {
     const useFilterName = event.target.name;
     setCheckedName(!checkedName);
     updateNamesToFilter(useFilterName);
-    // console.log("checked name", useFilterName);
   }
 
   // ** SET EFFECT FOR FILTER STATE NAME DEPENDING ON FILTER 'ALL' ** //
   useEffect(() => {
     let isCancelled = false;
     if (!isCancelled) {
-      if (CheckedAll) {
-        setCheckedName(true);
-      } else {
-        setCheckedName(false);
+      switch (CheckedAll) {
+        case true:
+          setCheckedName(true);
+          break;
+        case false:
+          setCheckedName(false);
+          break;
+        default:
       }
     }
     return () => {
