@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import Data from "../data/Data.js";
 import Table from "../components/Table.js";
-import Filters from "../components/Filters.js";
-import ProfielName from "../components/ProfielName.js";
+import FiltersBox from "../components/FiltersBox.js";
+import ProfielBox from "../components/ProfielBox.js";
 import BarChart from "../components/BarChart.js";
 
 function Home() {
+  // ** IMPORT DATA FORM DATA FILE ** //
   const { data, loading, error } = Data();
+
+  // ** SET STATE FOR FILTERD NAMES ** //
   const [filterByName, setFilterByName] = useState([]);
 
   // ** SET INPUT FOR FILTERNAMES ** //
@@ -33,7 +36,7 @@ function Home() {
     }
   }
 
-  // ** SET FUNCTION FOR SET FILTER BY NAME ** //
+  // ** SET CONST FOR SET FILTER BY NAME ** //
   const filteredNames = data.filter((e) => {
     return !filterByName.includes(e.name);
   });
@@ -66,8 +69,8 @@ function Home() {
       </header>
       <div className="wrapper">
         <div className="sidebar">
-          <ProfielName studentNames={studentNames} />
-          <Filters
+          <ProfielBox studentNames={studentNames} />
+          <FiltersBox
             studentNames={studentNames}
             setFilterByName={setFilterByName}
             updateNamesToFilter={updateNamesToFilter}

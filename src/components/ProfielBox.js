@@ -1,19 +1,18 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Profielicon from "../icon/profiel.png";
 
-function ProfielName({ studentNames }) {
+function ProfielBox({ studentNames }) {
   // ** SET STATE FOR TOGGLEPROFIEL ** //
   const [toggleProfiel, settoggleProfiel] = useState(false);
-
-  // ** SET FUNCTION FOR CHANGE CHECKED STATUS ALL ** //
-  //   function handleChange() {}
 
   // ** SET CONST FOR IETS CHECKBOX BASED ON NAME AND CALL FilterNames Component ** //
   const studentName = studentNames.map((studentName, index) => (
     <div key={index} className="profiel-name">
       <p>{studentName.name}</p>
-      {/* <button>Profiel</button> */}
-      <img className="profielicon" src={Profielicon} alt="profiel icon" />
+      <Link to={`/student/${studentName.name}`}>
+        <img className="icon" src={Profielicon} alt="profiel icon" />
+      </Link>
     </div>
   ));
 
@@ -26,4 +25,4 @@ function ProfielName({ studentNames }) {
   );
 }
 
-export default ProfielName;
+export default ProfielBox;
