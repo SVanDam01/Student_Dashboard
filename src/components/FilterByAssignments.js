@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
-import FilterByName from "./FilterByName.js";
+import FilterByAssignment from "./FilterByAssignment.js";
 
-function FilterByNames({
-  studentNames,
-  filterByName,
-  setFilterByName,
-  updateNamesToFilter,
+function FilterByAssignments({
+  assignmentNames,
+  filterByAssignment,
+  setFilterByAssignment,
+  updateAssignmentToFilter,
 }) {
   // ** SET STATE FOR CHECKBOXES ** //
   const [checked, setChecked] = useState(true);
@@ -17,11 +17,11 @@ function FilterByNames({
   function handleChange() {
     if (checked) {
       setChecked(false);
-      const result = studentNames.map((a) => a.name);
-      setFilterByName(result);
+      const result = assignmentNames.map((a) => a.name);
+      setFilterByAssignment(result);
     } else {
       setChecked(true);
-      setFilterByName([]);
+      setFilterByAssignment([]);
     }
   }
 
@@ -29,8 +29,8 @@ function FilterByNames({
   const checkboxRef = useRef();
   useEffect(() => {
     let clean = false;
-    const filteredArrayLenght = filterByName.length;
-    const studentNamesArrayLenght = studentNames.length;
+    const filteredArrayLenght = filterByAssignment.length;
+    const studentNamesArrayLenght = assignmentNames.length;
     if (!toggleFilter) {
       return;
     }
@@ -55,7 +55,7 @@ function FilterByNames({
     return () => {
       clean = true;
     };
-  }, [filterByName, studentNames, toggleFilter]);
+  }, [filterByAssignment, assignmentNames, toggleFilter]);
 
   // ** SET FUNCTION FOR TOGGLE THE FILTER ON NAME ** //
   function handletoggleFilter() {
@@ -63,7 +63,7 @@ function FilterByNames({
       // reset filter to default, all checked
       settoggleFilter(true);
       setChecked(true);
-      setFilterByName([]);
+      setFilterByAssignment([]);
     } else {
       //
       settoggleFilter(false);
@@ -71,18 +71,18 @@ function FilterByNames({
   }
 
   // ** SET CONST FOR IETS CHECKBOX BASED ON NAME AND CALL FilterNames COMPONENT ** //
-  const studentName = studentNames.map((studentName, index) => (
-    <FilterByName
-      studentName={studentName.name}
+  const assignmentName = assignmentNames.map((assignmentName, index) => (
+    <FilterByAssignment
+      assignmentName={assignmentName.name}
       CheckedAll={checked}
       key={index}
-      updateNamesToFilter={updateNamesToFilter}
+      updateAssignmentToFilter={updateAssignmentToFilter}
     />
   ));
 
   return (
     <>
-      <button onClick={handletoggleFilter}>By Name</button>
+      <button onClick={handletoggleFilter}>By Assignment</button>
       {toggleFilter ? (
         <div className="filter-item">
           <label className="filter-name">
@@ -95,7 +95,7 @@ function FilterByNames({
             />
             All
           </label>
-          <div className="filterbox">{studentName}</div>
+          <div className="filterbox">{assignmentName}</div>
         </div>
       ) : (
         <></>
@@ -104,4 +104,4 @@ function FilterByNames({
   );
 }
 
-export default FilterByNames;
+export default FilterByAssignments;

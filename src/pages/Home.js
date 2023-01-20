@@ -12,6 +12,9 @@ function Home() {
   // ** SET STATE FOR FILTERD NAMES ** //
   const [filterByName, setFilterByName] = useState([]);
 
+  // ** SET STATE FOR FILTERD ASSIGNMENTS ** // ####
+  const [filterByAssignment, setFilterByAssignment] = useState([]);
+
   // ** SET INPUT FOR FILTERNAMES ** //
   const studentNames = [];
   for (const item of data) {
@@ -21,7 +24,18 @@ function Home() {
     }
   }
 
-  // // ** SET FUNCTION FOR ADDING FILTERNAMES ** //
+  // ** SET INPUT FOR FILTER ASSIGNMENT ** // #####
+  const assignmentNames = [];
+  for (const item of data) {
+    const isDuplicate = assignmentNames.find(
+      (obj) => obj.name === item.assignment
+    );
+    if (!isDuplicate) {
+      assignmentNames.push({ name: item.assignment });
+    }
+  }
+
+  // ** SET FUNCTION FOR ADDING FILTERNAMES ** //
   function updateNamesToFilter(filtername) {
     if (filterByName.includes(filtername)) {
       // "check naam in filter, true?", delete naam from array
@@ -36,8 +50,27 @@ function Home() {
     }
   }
 
-  // ** SET CONST FOR SET FILTER BY NAME ** //
-  const filteredNames = data.filter((e) => {
+  // ** SET FUNCTION FOR ADDING FILTER ASSIGNMENTS ** // #####
+  function updateAssignmentToFilter(filterassignment) {
+    if (filterByAssignment.includes(filterassignment)) {
+      // "check assignment in filter, true?", delete assignment from array
+      const deleteFilteredNames = filterByAssignment.filter((name) => {
+        return !name.includes(filterassignment);
+      });
+      setFilterByAssignment(deleteFilteredNames);
+    } else {
+      const addFilteredNames = [...filterByAssignment, filterassignment];
+      setFilterByAssignment(addFilteredNames);
+      // "New array with assignment"
+    }
+  }
+
+  // ** SET CONST FOR SET FILTER BY NAME & ASSIGNMENT ** // ######
+  const filteredAssignment = data.filter((e) => {
+    return !filterByAssignment.includes(e.assignment);
+  });
+
+  const filteredNames = filteredAssignment.filter((e) => {
     return !filterByName.includes(e.name);
   });
 
@@ -65,16 +98,20 @@ function Home() {
   return (
     <div className="home">
       <header>
-        <h1>Student Dashboard</h1>
+        <h1>Students Dashboard</h1>
       </header>
       <div className="wrapper">
         <div className="sidebar">
           <ProfielBox studentNames={studentNames} />
           <FiltersBox
             studentNames={studentNames}
+            assignmentNames={assignmentNames}
             setFilterByName={setFilterByName}
+            setFilterByAssignment={setFilterByAssignment}
             updateNamesToFilter={updateNamesToFilter}
+            updateAssignmentToFilter={updateAssignmentToFilter}
             filterByName={filterByName}
+            filterByAssignment={filterByAssignment}
           />
         </div>
         <main className="main">
