@@ -2,7 +2,7 @@ import React from "react";
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS } from "chart.js/auto";
 
-// Import Chart is not visualeble used, but on teh background! See set-up
+// Import Chart is not visualeble used, but on the background! See set-up!
 
 function BarChart({ inputBarChart }) {
   // ** SET THE DATA FOR THE CHARTER, BASED ON TEH SAME DATA IN 'filteredNames' ** //

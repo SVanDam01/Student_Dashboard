@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import FilterByAssignment from "./FilterByAssignment.js";
+import FilterByItem from "./FilterByItem.js";
 
-function FilterByAssignments({
-  assignmentNames,
-  filterByAssignment,
-  setFilterByAssignment,
-  updateAssignmentToFilter,
+function FilterByItems({
+  filtertext,
+  filterNames,
+  filterByItem,
+  setFilter,
+  updateFilter,
 }) {
   // ** SET STATE FOR CHECKBOXES ** //
   const [checked, setChecked] = useState(true);
@@ -17,11 +18,11 @@ function FilterByAssignments({
   function handleChange() {
     if (checked) {
       setChecked(false);
-      const result = assignmentNames.map((a) => a.name);
-      setFilterByAssignment(result);
+      const result = filterNames.map((a) => a.name);
+      setFilter(result);
     } else {
       setChecked(true);
-      setFilterByAssignment([]);
+      setFilter([]);
     }
   }
 
@@ -29,8 +30,8 @@ function FilterByAssignments({
   const checkboxRef = useRef();
   useEffect(() => {
     let clean = false;
-    const filteredArrayLenght = filterByAssignment.length;
-    const studentNamesArrayLenght = assignmentNames.length;
+    const filteredArrayLenght = filterByItem.length;
+    const filterNamesArrayLenght = filterNames.length;
     if (!toggleFilter) {
       return;
     }
@@ -41,7 +42,7 @@ function FilterByAssignments({
           checkboxRef.current.checked = true;
           checkboxRef.current.indeterminate = false;
           break;
-        case studentNamesArrayLenght:
+        case filterNamesArrayLenght:
           setChecked(false);
           checkboxRef.current.checked = false;
           checkboxRef.current.indeterminate = false;
@@ -55,7 +56,7 @@ function FilterByAssignments({
     return () => {
       clean = true;
     };
-  }, [filterByAssignment, assignmentNames, toggleFilter]);
+  }, [filterByItem, filterNames, toggleFilter]);
 
   // ** SET FUNCTION FOR TOGGLE THE FILTER ON NAME ** //
   function handletoggleFilter() {
@@ -63,7 +64,7 @@ function FilterByAssignments({
       // reset filter to default, all checked
       settoggleFilter(true);
       setChecked(true);
-      setFilterByAssignment([]);
+      setFilter([]);
     } else {
       //
       settoggleFilter(false);
@@ -71,18 +72,18 @@ function FilterByAssignments({
   }
 
   // ** SET CONST FOR IETS CHECKBOX BASED ON NAME AND CALL FilterNames COMPONENT ** //
-  const assignmentName = assignmentNames.map((assignmentName, index) => (
-    <FilterByAssignment
-      assignmentName={assignmentName.name}
+  const filterName = filterNames.map((filterName, index) => (
+    <FilterByItem
+      filterName={filterName.name}
       CheckedAll={checked}
       key={index}
-      updateAssignmentToFilter={updateAssignmentToFilter}
+      updateFilter={updateFilter}
     />
   ));
 
   return (
     <>
-      <button onClick={handletoggleFilter}>By Assignment</button>
+      <button onClick={handletoggleFilter}>By {filtertext}</button>
       {toggleFilter ? (
         <div className="filter-item">
           <label className="filter-name">
@@ -95,7 +96,7 @@ function FilterByAssignments({
             />
             All
           </label>
-          <div className="filterbox">{assignmentName}</div>
+          <div className="filterbox">{filterName}</div>
         </div>
       ) : (
         <></>
@@ -104,4 +105,4 @@ function FilterByAssignments({
   );
 }
 
-export default FilterByAssignments;
+export default FilterByItems;
