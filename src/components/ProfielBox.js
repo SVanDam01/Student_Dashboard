@@ -8,10 +8,10 @@ function ProfielBox({ studentNames }) {
 
   // ** SET CONST FOR IETS CHECKBOX BASED ON NAME AND CALL FilterNames Component ** //
   const studentName = studentNames.map((studentName, index) => (
-    <div key={index} className="profiel-name">
-      <p>{studentName.name}</p>
-      <Link to={`/student/${studentName.name}`}>
+    <div key={index}>
+      <Link className="profiel-name" to={`/student/${studentName.name}`}>
         <img className="icon" src={Profielicon} alt="profiel icon" />
+        {studentName.name}
       </Link>
     </div>
   ));

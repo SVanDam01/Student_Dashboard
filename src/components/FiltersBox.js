@@ -1,6 +1,5 @@
 import React from "react";
-import FilterByNames from "./FilterByNames.js";
-import FilterByAssignments from "./FilterByAssignments.js";
+import FilterByItems from "./FilterByItems.js";
 
 function FiltersBox({
   studentNames,
@@ -15,17 +14,19 @@ function FiltersBox({
   return (
     <div className="flex-filter">
       <h2>Filters</h2>
-      <FilterByNames
-        studentNames={studentNames}
-        filterByName={filterByName}
-        setFilterByName={setFilterByName}
-        updateNamesToFilter={updateNamesToFilter}
+      <FilterByItems
+        filtertext={"name"}
+        filterNames={studentNames}
+        filterByItem={filterByName}
+        setFilter={setFilterByName}
+        updateFilter={updateNamesToFilter}
       />
-      <FilterByAssignments
-        assignmentNames={assignmentNames}
-        filterByAssignment={filterByAssignment}
-        setFilterByAssignment={setFilterByAssignment}
-        updateAssignmentToFilter={updateAssignmentToFilter}
+      <FilterByItems
+        filtertext={"assignment"}
+        filterNames={assignmentNames}
+        filterByItem={filterByAssignment}
+        setFilter={setFilterByAssignment}
+        updateFilter={updateAssignmentToFilter}
       />
     </div>
   );

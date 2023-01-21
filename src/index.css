@@ -32,13 +32,12 @@ select {
 /* Set root */
 
 :root {
-  --color-theme: rgb(0, 0, 255);
+  --color-btn-theme: rgb(0, 0, 255);
   --color-ligt: white;
   --color-bg: rgb(247, 247, 247);
-  --color-btn: rgb(0, 0, 128);
-  --color-delbtn: rgb(180, 20, 20);
-  --color-navbar: #333;
+  --color-btn: #333;
   --color-table: #333;
+  --box-shadow: #7f827b;
 
   background-color: var(--color-bg);
   color: var(--color-dark);
@@ -62,7 +61,7 @@ main h2 {
 }
 
 button {
-  background-color: var(--color-navbar);
+  background-color: var(--color-btn);
   color: var(--color-ligt);
   border-radius: 10px;
   border: none;
@@ -72,7 +71,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--color-theme);
+  background-color: var(--color-btn-theme);
 }
 
 .icon {
@@ -95,7 +94,7 @@ button:hover {
   gap: 1rem;
   background-color: var(--color-ligt);
   border-radius: 10px;
-  box-shadow: 2px 6px 6px 0px #7f827b;
+  box-shadow: 2px 6px 6px 0px var(--box-shadow);
   height: fit-content;
   padding: 1rem;
   margin-top: 1.5rem;
@@ -106,14 +105,19 @@ button:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  border-bottom: #333;
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
+  font-weight: bold;
 }
 
-.profiel-name {
+.filter-item-name {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  justify-content: space-between;
-  margin: 0rem 6rem 0rem 2rem;
+  border-bottom: #333;
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
 }
 
 .filter-item {
@@ -121,13 +125,36 @@ button:hover {
   flex-direction: column;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-left: 2rem;
+  border-radius: 10px;
+  padding: 1rem;
+  border: #333;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.profiel-name {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  gap: 1rem;
+  padding: 0rem 0.5rem 0rem 0.5rem;
+  border-bottom: #333;
+  border-bottom-style: dotted;
+  border-bottom-width: 1px;
+  text-decoration: none;
 }
 
 .profilebox {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-radius: 10px;
+  padding: 1rem;
+  border: #333;
+  border-style: solid;
+  border-width: 1px;
 }
 
 /* Setup lay-out chart */
@@ -138,7 +165,7 @@ button:hover {
   height: 70vh;
   background-color: var(--color-ligt);
   border-radius: 10px;
-  box-shadow: 2px 6px 6px 0px #7f827b;
+  box-shadow: 2px 6px 6px 0px var(--box-shadow);
 }
 
 /* Setup lay-out Table */
@@ -146,7 +173,7 @@ button:hover {
 .table-container {
   background-color: var(--color-ligt);
   border-radius: 10px;
-  box-shadow: 2px 6px 6px 0px #7f827b;
+  box-shadow: 2px 6px 6px 0px var(--box-shadow);
   padding-bottom: 0.1rem;
   height: fit-content;
 }
@@ -191,6 +218,7 @@ table {
   display: flex;
   gap: 1rem;
   align-items: center;
+  text-decoration: none;
 }
 
 .student h1 {
@@ -201,6 +229,12 @@ table {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  align-items: center;
+  border-radius: 10px;
+  padding: 1rem 1.5rem 1rem 1.5rem;
+  border: #333;
+  border-style: solid;
+  border-width: 1px;
 }
 
 .studentProfile img {

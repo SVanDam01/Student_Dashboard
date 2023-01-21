@@ -49,11 +49,11 @@ function Student() {
   return (
     <div>
       <header className="student">
-        <div className="back-to-home">
-          <Link to={"/"}>
+        <div>
+          <Link className="back-to-home" to={"/"}>
             <img className="icon" src={Profielicon} alt="home icon" />
+            Back
           </Link>
-          <p>Back</p>
         </div>
         <h1>Dashboard of {name} </h1>
       </header>

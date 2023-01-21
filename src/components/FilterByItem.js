@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function FilterName({ studentName, CheckedAll, updateNamesToFilter }) {
+function FilterByItem({ filterName, CheckedAll, updateFilter }) {
   // ** SET STATE FOR CHECKBOX NAME ** //
   const [checkedName, setCheckedName] = useState(true);
 
@@ -8,7 +8,7 @@ function FilterName({ studentName, CheckedAll, updateNamesToFilter }) {
   function handleChange(event) {
     const useFilterName = event.target.name;
     setCheckedName(!checkedName);
-    updateNamesToFilter(useFilterName);
+    updateFilter(useFilterName);
   }
 
   // ** SET EFFECT FOR FILTER STATE NAME DEPENDING ON FILTER 'ALL' ** //
@@ -31,18 +31,18 @@ function FilterName({ studentName, CheckedAll, updateNamesToFilter }) {
   }, [CheckedAll]);
 
   return (
-    <label className="filter-name">
+    <label className="filter-item-name">
       <input
         className="filter-checkbox"
         type="checkbox"
-        name={studentName}
+        name={filterName}
         value={checkedName}
         checked={checkedName}
         onChange={handleChange}
       />
-      {studentName}
+      {filterName}
     </label>
   );
 }
 
-export default FilterName;
+export default FilterByItem;
